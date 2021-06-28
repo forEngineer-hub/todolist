@@ -6,6 +6,8 @@ export const SHOW_DONE = "show_done";
 export const SHOW_UNDONE = "show_undone";
 export const COMPELETE = "compelete";
 
+export let idx : number = 1;
+
 interface AddTodoAction {
   type: typeof ADD_TODO;
   payload: ToDo | undefined;
@@ -30,10 +32,10 @@ interface compelete {
 
 export type actionType = AddTodoAction;
 
-export const AddTodoActionCreator = (todo?: ToDo): AddTodoAction => {
+export const AddTodoActionCreator = (name: string): AddTodoAction => {
   return {
     type: ADD_TODO,
-    payload: todo,
+    payload: {id:++idx, name: name, status : "undone"},
   };
 };
 

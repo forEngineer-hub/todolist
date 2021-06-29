@@ -1,12 +1,12 @@
 import { createStore } from 'redux';
 import languageReducer from "./language/languageReducer";
 import { combineReducers } from 'redux'
-import {addTodo} from '../redux/todo/toDoReducer';
+import {addTodo, filter} from '../redux/todo/toDoReducer';
 
 
 
 const rootReducer = combineReducers({
-    languageReducer, addTodo
+    languageReducer, addTodo, filter
 })
 
 const store = createStore(rootReducer,

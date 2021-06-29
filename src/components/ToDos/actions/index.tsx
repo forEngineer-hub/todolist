@@ -1,10 +1,12 @@
+import { NONAME } from 'dns';
 import {ToDo} from '../../../redux/todo/toDoReducer';
 
 export const ADD_TODO = "add_todo";
-export const SHOW_ALL = "show_all";
-export const SHOW_DONE = "show_done";
-export const SHOW_UNDONE = "show_undone";
+export const SHOW_ALL = "all";
+export const SHOW_DONE = "done";
+export const SHOW_UNDONE = "undone";
 export const COMPELETE = "compelete";
+export const SET_FILTER = "SET_FILTER";
 
 export let idx : number = 1;
 
@@ -13,16 +15,18 @@ interface AddTodoAction {
   payload: ToDo | undefined;
 }
 
-export const showAll = {
-  type: SHOW_ALL,
-};
+export interface SetFilterAction {
+  type: typeof SET_FILTER;
+  payload: string;
+}
 
-export const showDone = {
-  type: SHOW_DONE,
-};
 
-export const ShowUnDone = {
-  type: SHOW_UNDONE,
+//动态生成action
+export const setFilterActionCreator = (filter: string): SetFilterAction => {
+  return {
+    type: SET_FILTER,
+    payload: filter,
+  };
 };
 
 interface compelete {

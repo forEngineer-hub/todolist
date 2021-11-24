@@ -37,7 +37,7 @@ export type actionType = AddTodoAction;
 
 export const AddTodoActionCreator = (name: string): AddTodoAction => {
   fetch("http://localhost:8081/searchHistory/getSearchHistory", {
-    mode: "cors",
+    mode: "no-cors",
   })
     .then((res) => {
       console.log(res);
